@@ -28,7 +28,7 @@ Vue.config({
 
 new Vue({
 
-    el: 'body',
+    el: 'body'/*,
 
     directives: {
         flip: require('./directives/flip')
@@ -36,7 +36,7 @@ new Vue({
 
     filters: {
         reverse: require('./filters/reverse')
-    },
+    },*/
 
     components: {
         navbar : require('navbar'),
