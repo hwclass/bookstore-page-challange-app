@@ -36,7 +36,7 @@ new Vue({
 
     filters: {
         reverse: require('./filters/reverse')
-    },*/
+    }*/,
 
     components: {
         navbar : require('navbar'),
