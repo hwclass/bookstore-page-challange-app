@@ -20,7 +20,9 @@
     "footer"
   ],
   "dependencies": {
-    "yyx990803/vue": "*"
+    "yyx990803/vue": "*",
+    "config": "*",
+    "data": "*"
   },
   "remotes": []
 }
