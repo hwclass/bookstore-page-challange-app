@@ -25,6 +25,20 @@ new Vue({
 
     methods : {},
 
+    computed : {
+        formattedPublicationDate: {
+            // the getter should return the desired value
+            $get: function () {
+                var validDate = this.book.publication_date;
+                return validDate + 'takinardi';
+            },
+            // the setter is optional
+            $set: function (newValue) {
+                return true;
+            }
+        }       
+    },
+
     data: {
         projectTitle: 'The Project',
         menuItems : [
