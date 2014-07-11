@@ -2,7 +2,6 @@
   "name": "vue-component-example",
   "main": "src/main.js",
   "scripts": [
-    "src/config.js",
     "src/main.js",
     "src/directives/flip.js",
     "src/filters/reverse.js"

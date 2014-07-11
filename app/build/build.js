@@ -4713,9 +4713,42 @@ module.exports = {
 
 	interpolate: true,
 
-	delimiters: ['{', '}']
+	delimiters: ['{', '}'],
+
+	months : [
+		['01' , 'January'], 
+		['02' , 'February'], 
+		['03' , 'March'], 
+		['04' , 'April'], 
+		['05' , 'May'], 
+		['06' , 'June'], 
+		['07' , 'July'], 
+		['07' , 'August'], 
+		['09' , 'September'], 
+		['10' , 'October'], 
+		['11' , 'November'], 
+		['12' , 'December']
+	]
 
 };
+});
+require.register("config/src/main.js", function(exports, require, module){
+module.exports = {
+	months : [
+		['01' , 'January'], 
+		['02' , 'February'], 
+		['03' , 'March'], 
+		['04' , 'April'], 
+		['05' , 'May'], 
+		['06' , 'June'], 
+		['07' , 'July'], 
+		['07' , 'August'], 
+		['09' , 'September'], 
+		['10' , 'October'], 
+		['11' , 'November'], 
+		['12' , 'December']
+	]
+}
 });
 require.register("data/src/book.js", function(exports, require, module){
 module.exports = {
@@ -4757,39 +4790,14 @@ module.exports = {
   template: require('./template.html')
 }
 });
-require.register("vue-component-example/src/config.js", function(exports, require, module){
-module.exports = {
-
-	/* prefix for directives */
-	prefix: 'app',
-
-	/* log debug info */
-	debug: false,
-
-	/* suppress warnings */
-	silent: false,
-
-	/* CSS class attached for entering transitionc*/
-	enterClass: 'v-enter',
-
-	/* CSS class attached for leaving transitionc*/
-	leaveClass: 'v-leave',
-
-	/* Interpolate mustache bindings */
-	interpolate: true,
-
-	/* Interpolation delimiters
-	 default value translates to {{ }} and {{{ }}}*/
-	delimiters: ['{', '}']
-
-};
-});
 require.register("vue-component-example/src/main.js", function(exports, require, module){
 /*Vue framework imported*/
 var Vue = require('vue')
 
 /*config component imported*/
 var config = require('config');
+//var configMain = require('./config/main')
+
 Vue.config(config);
 
 new Vue({
@@ -4817,7 +4825,14 @@ new Vue({
             // the getter should return the desired value
             $get: function () {
                 var validDate = this.book.publication_date;
-                return validDate + 'takinardi';
+                var seperationList = validDate.split('/');
+                var validMonthOfDate = '';
+                for (var i = 0, len = config.months.length; i < len; i++) {
+                    if (config.months[i][0].indexOf(seperationList[0]) !== -1) {
+                        validMonthOfDate = config.months[i][1];
+                    }
+                }
+                return validMonthOfDate + ' ' + seperationList[1].substring(1, 2) + ' ' + seperationList[2];
             },
             // the setter is optional
             $set: function (newValue) {
@@ -4864,7 +4879,7 @@ module.exports = function (value) {
 
 
 require.register("navbar/template.html", function(exports, require, module){
-module.exports = '<header>\n  <section class="content">\n    <div class="book-information">\n      <h1 class="title ac" app-text="book.title"></h1>\n      <h2 class="writer ac">By <span app-text="book.author"></span></h2>\n      <h3 class="publishing-date ac">Published <span app-text="formattedPublicationDate">Jun 2012</span> , <span app-text="book.pages"></span> pages</h3>\n      <p class="recommadations ac">\n        <a href="#" class="btn font-signpainter">ADD TO MY QUEUE</a>\n        <a href="#" class="btn font-brandon">I\'VE READ IT</a>\n        <a href="#" class="btn font-arial">NO THANKS</a>\n        <a href="#" class="btn">love</a>\n      </p>\n    </div>\n  </section>\n</header>\n<nav>\n  <section class="content ac">\n    <ul id="navigation-items">\n      <li class="item first">\n        <div class="ac">About this</div>\n        <div class="ac">BOOK</div>\n      </li>\n      <li class="item second">\n        <div class="ac">Favourite</div>\n        <div class="ac">QUOTES</div>\n      </li>\n    </ul>\n  </section>\n</nav>';
+module.exports = '<header>\n  <section class="content">\n    <div class="book-information">\n      <h1 class="title ac" app-text="book.title"></h1>\n      <h2 class="writer ac">By <span app-text="book.author"></span></h2>\n      <h3 class="publishing-date ac">Published <span app-text="formattedPublicationDate">&nbsp;</span> , <span app-text="book.pages"></span> pages</h3>\n      <p class="recommadations ac">\n        <a href="#" class="btn font-signpainter">ADD TO MY QUEUE</a>\n        <a href="#" class="btn font-brandon">I\'VE READ IT</a>\n        <a href="#" class="btn font-arial">NO THANKS</a>\n        <a href="#" class="btn">love</a>\n      </p>\n    </div>\n  </section>\n</header>\n<nav>\n  <section class="content ac">\n    <ul id="navigation-items">\n      <li class="item first">\n        <div class="ac">About this</div>\n        <div class="ac">BOOK</div>\n      </li>\n      <li class="item second">\n        <div class="ac">Favourite</div>\n        <div class="ac">QUOTES</div>\n      </li>\n    </ul>\n  </section>\n</nav>';
 });
 require.register("main/template.html", function(exports, require, module){
 module.exports = '<section id="middle">\n	<div class="content">\n		<section class="book-shelf fl" style="width: 283px;">\n			<img src="public/img/cover.jpg" width="164" />\n		</section>\n		<section class="book-ingredients fl" style="width: 662px;">\n			<div class="title">\n				<div class="">About this</div>\n				<div class="">BOOK</div>\n			</div>\n			<!--\n			<div class="fl">text</div>\n			<div class="book-cart fr" style="width: 300px; height: 215px; padding: 40px; background: #DDD;">book-cart</div>\n			-->\n			<div id="primary" class="text" style="float: left; width: 100%;">\n			   <div id="secondary" class="book-cart fr" style="width: 300px; height: 215px; background: #DDD;">\n			      <p>Put your content here that goes on the right</p>\n			   </div>\n			   <p>Put your content here that goes on the left and should wrap under the right-hand column</p>\n			</div>\n\n		</section>\n	</div>\n	<div class="quotes" style="width: 100%; color: #FFF;">\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="">Favourite</div>\n			<div class="">QUOTES</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 47px;">ADD A QUOTE</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div style="margin-top: 47px;" class="">\n				<div class="" style="width: 962px; margin: 0 auto;word-break: break-all;position: relative;">\n					<div class="quote-comma-left" style="position: absolute; top: 0; left: 0;">\'\'</div>\n					<div class="quote-text" style="margin: 0 162px 0 154px;/* display: inline; *//* float: left; */">quotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesququotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesquotesotes</div>\n					<div class="quote-comma-right" style="position: absolute;  top: 0; right: 0;">\'\'</div>\n				</div>\n			</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 112px;">VIEW ALL QUOTES</div>\n		</div>\n	</div>\n</section>';
@@ -4902,6 +4917,7 @@ require.alias("yyx990803-vue/src/main.js", "vue-component-example/deps/vue/index
 require.alias("yyx990803-vue/src/main.js", "vue/index.js");
 require.alias("yyx990803-vue/src/main.js", "yyx990803-vue/index.js");
 require.alias("config/src/config.js", "vue-component-example/deps/config/src/config.js");
+require.alias("config/src/main.js", "vue-component-example/deps/config/src/main.js");
 require.alias("config/src/config.js", "vue-component-example/deps/config/index.js");
 require.alias("config/src/config.js", "config/index.js");
 require.alias("config/src/config.js", "config/index.js");

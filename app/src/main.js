@@ -3,6 +3,8 @@ var Vue = require('vue')
 
 /*config component imported*/
 var config = require('config');
+//var configMain = require('./config/main')
+
 Vue.config(config);
 
 new Vue({
@@ -27,15 +29,19 @@ new Vue({
 
     computed : {
         formattedPublicationDate: {
-            // the getter should return the desired value
             $get: function () {
                 var validDate = this.book.publication_date;
-                return validDate + 'takinardi';
+                var seperationList = validDate.split('/');
+                var validMonthOfDate = '';
+                for (var i = 0, len = config.months.length; i < len; i++) {
+                    if (config.months[i][0].indexOf(seperationList[0]) !== -1) {
+                        validMonthOfDate = config.months[i][1];
+                    }
+                }
+                return validMonthOfDate + ' ' + seperationList[1].substring(1, 2) + ' ' + seperationList[2];
             },
             // the setter is optional
-            $set: function (newValue) {
-                return true;
-            }
+            $set: function (newValue) {return true;}
         }       
     },
 
