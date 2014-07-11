@@ -1,5 +1,5 @@
 module.exports = {
-    title: "Gold",
+    "title": "Gold",
     "description": "The spectacular new novel by the bestselling and critically acclaimed author of the reader and bookseller favourite, Little Bee. In the tradition of his beloved previous novel, Little Bee, Chris Cleave again gives us an elegant, funny, passionate story about friendship, marriage, parenthood, tragedy, and redemption. This time, the setting is the upcoming London Olympics. Gold is the story of two women, Zoe and Kate, world-class cyclists who have been friends and rivals since their first day of elite training years ago. They have loved, fought, betrayed, forgiven, lost, consoled, triumphed, and grown up together. Now, on the eve of London 2012, their last Olympics, the two must compete for the one remaining spot on their team. In doing so, the women will be tested to their physical, mental and emotional limits. They will confront each other and their own mortality, and be asked to decide: What will you sacrifice for the people you love?",
     "image_url": "img/cover.jpg",
     "author": "Chris Cleave",
