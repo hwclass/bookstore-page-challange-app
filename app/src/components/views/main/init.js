@@ -2,11 +2,15 @@
 var Vue = require('vue');
 
 new Vue({
-	el : '#middle',
-	data : {
-		test : 'test data'
+	el: '#middle',
+	components: {},
+	methods : {
+		log : function (msg) {
+			consoole.log(msg)
+		}
 	},
-	components : {},
-	methods : {},
-	computed : {}
+	computed : {},
+	data: {
+		testo : 'TESTTTTTT'
+	}
 });

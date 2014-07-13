@@ -9,7 +9,7 @@ Vue.config(config);
 
 new Vue({
 
-    el: 'body'/*,
+    el: 'html'/*,
 
     directives: {
         flip: require('./directives/flip')
@@ -46,7 +46,7 @@ new Vue({
     },
 
     data: {
-        projectTitle: 'The Project',
+        projectTitle: 'Custom vue.js component project structure',
         menuItems : [
         	{text : 'Home', link : '#home', className : 'active'},
         	{text : 'About', link : '#about', className : ''},
@@ -59,4 +59,5 @@ new Vue({
         currentView : 'main',
         book : require('data')
     }
+
 });

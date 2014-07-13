@@ -1,6 +1,9 @@
 {
     "name": "footer",
-    "scripts": ["index.js"],
+    "scripts": [
+    	"index.js",
+    	"init.js"
+  	],
     "styles": ["style.css"],
     "templates": ["template.html"]
 }
