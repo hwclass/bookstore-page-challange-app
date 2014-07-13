@@ -1,6 +1,0 @@
-{
-    "name": "navbar",
-    "scripts": ["index.js"],
-    "styles": ["style.css"],
-    "templates": ["template.html"]
-}

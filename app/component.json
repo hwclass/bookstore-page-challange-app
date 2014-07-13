@@ -11,9 +11,11 @@
   ],
   "paths": [
     "components",
+    "components/views",
     "src/components"
   ],
   "local": [
+    "views",
     "navbar",
     "main",
     "footer"
@@ -21,7 +23,8 @@
   "dependencies": {
     "yyx990803/vue": "*",
     "config": "*",
-    "data": "*"
+    "data": "*",
+    "views" : "*"
   },
   "remotes": []
 }

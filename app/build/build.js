@@ -4822,7 +4822,6 @@ new Vue({
 
     computed : {
         formattedPublicationDate: {
-            // the getter should return the desired value
             $get: function () {
                 var validDate = this.book.publication_date;
                 var seperationList = validDate.split('/');
@@ -4835,9 +4834,7 @@ new Vue({
                 return validMonthOfDate + ' ' + seperationList[1].substring(1, 2) + ' ' + seperationList[2];
             },
             // the setter is optional
-            $set: function (newValue) {
-                return true;
-            }
+            $set: function (newValue) {return true;}
         }       
     },
 
