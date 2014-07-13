@@ -20,7 +20,7 @@ new Vue({
     }*/,
 
     components: {
-        navbar : require('./views/navbar'),
+        navbar : require('navbar'),
         main: require('main'),
         footer : require('footer')
     },

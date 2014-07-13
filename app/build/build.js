@@ -4772,6 +4772,7 @@ module.exports = {
     ]
 }
 });
+
 require.register("navbar/index.js", function(exports, require, module){
 module.exports = {
   className: 'navbar navbar-inverse navbar-fixed-top',
@@ -4790,7 +4791,7 @@ module.exports = {
   template: require('./template.html')
 }
 });
-require.register("vue-component-example/src/main.js", function(exports, require, module){
+require.register("bookstore-page-challange-app/src/main.js", function(exports, require, module){
 /*Vue framework imported*/
 var Vue = require('vue')
 
@@ -4854,18 +4855,20 @@ new Vue({
     }
 });
 });
-require.register("vue-component-example/src/directives/flip.js", function(exports, require, module){
+require.register("bookstore-page-challange-app/src/directives/flip.js", function(exports, require, module){
 module.exports = function () {
     this.el.style.transform =
     this.el.style.mozTransform =
     this.el.style.webkitTransform = 'scaleX(-1)'
 }
 });
-require.register("vue-component-example/src/filters/reverse.js", function(exports, require, module){
+require.register("bookstore-page-challange-app/src/filters/reverse.js", function(exports, require, module){
 module.exports = function (value) {
     return value.toString().split('').reverse().join('')
 }
 });
+
+
 
 
 
@@ -4884,58 +4887,59 @@ module.exports = '<section id="middle">\n	<div class="content">\n		<section clas
 require.register("footer/template.html", function(exports, require, module){
 module.exports = '<footer>\n			<section class="above" style="color: #FFF; font-family: Arial; font-size: 12px;">\n				<div style="width: 1006px; margin: 0 auto;">\n					<div class="left-column fl" style="width: 450px; padding-top: 46px;">\n						<section class="recommedation-list fl">\n							<span>RECOMMEDATIONS</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">Start with a book</li>\n								<li style="margin-top: 13px;">Start with a author</li>\n								<li style="margin-top: 13px;">Start with an experience</li>\n							</ul>\n						</section>\n						<section class="recommedation-list fl" style="width: 253px; margin-left: 30px;">\n							<span>THE FINGERPRINT</span>\n							<div style="margin-top: 13px;">\n								Looking for a new reading adventure? Delivers better book discovery. Our recommedations are based on a deep understanding of book anatomy, reader experiences and diverse publishing insights. Learn more -->\n							</ul>\n						</section>\n					</div>\n					<div class="fl" style="width: 1px; height: 100%; background: #DDD;">&nbsp;</div>\n					<div class="right-column fl" style="width: 555px; padding-top: 46px;">\n						<section class="about-us-list fl" style="margin-left: 30px;">\n							<span>ABOUT US</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">About</li>\n								<li style="margin-top: 13px;">Blog</li>\n							</ul>\n						</section>\n						<section class="contact-us-list fl" style="margin-left: 30px;">\n							<span>CONTACT US</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">Advertising</li>\n								<li style="margin-top: 13px;">Careers</li>\n								<li style="margin-top: 13px;">Contact Us</li>\n							</ul>\n						</section>\n						<section class="follow-us-list fl" style="margin-left: 30px;">\n							<span>FOLLOW US</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">Facebook</li>\n								<li style="margin-top: 13px;">Twitter</li>\n								<li style="margin-top: 13px;">Pinterest</li>\n								<li style="margin-top: 13px;">Tumblr</li>\n							</ul>\n						</section>\n						<section class="offers-list fl" style="margin-left: 30px;">\n							<span>OFFERS</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">Deals</li>\n								<li style="margin-top: 13px;">On Sale</li>\n							</ul>\n						</section>\n						<section class="offers-list fl" style="margin-left: 30px;">\n							<span>SUPPORT</span>\n							<ul style="margin-top: 13px;">\n								<li style="margin-top: 13px;">FAQ</li>\n								<li style="margin-top: 13px;">Community Guidelines</li>\n								<li style="margin-top: 13px;">Support</li>\n							</ul>\n						</section>\n					</div>\n				</div>\n			</section>\n			<section class="below" style="color: #FFF;">\n				<div style="width: 1006px; margin: 0 auto;">\n					<div class="left-column fl" style="width: 450px; margin-top: 17px;">\n						<section class="year fl">\n							2014\n						</section>\n					</div>\n					<div class="right-column fl" style="width: 555px; margin-top: 18px;">\n						<section class="info fl">\n							<ul style="list-style-type: none;">\n								<li style="display: inline; margin-left: 30px;">Site Map</li>\n								<li style="display: inline; margin-left: 30px;">Privacy Policy</li>\n								<li style="display: inline; margin-left: 30px;">Terms of Service</li>\n							</ul>\n						</section>\n					</div>\n				</div>\n			</section>\n		</footer>';
 });
-require.alias("yyx990803-vue/src/main.js", "vue-component-example/deps/vue/src/main.js");
-require.alias("yyx990803-vue/src/emitter.js", "vue-component-example/deps/vue/src/emitter.js");
-require.alias("yyx990803-vue/src/config.js", "vue-component-example/deps/vue/src/config.js");
-require.alias("yyx990803-vue/src/utils.js", "vue-component-example/deps/vue/src/utils.js");
-require.alias("yyx990803-vue/src/fragment.js", "vue-component-example/deps/vue/src/fragment.js");
-require.alias("yyx990803-vue/src/compiler.js", "vue-component-example/deps/vue/src/compiler.js");
-require.alias("yyx990803-vue/src/viewmodel.js", "vue-component-example/deps/vue/src/viewmodel.js");
-require.alias("yyx990803-vue/src/binding.js", "vue-component-example/deps/vue/src/binding.js");
-require.alias("yyx990803-vue/src/observer.js", "vue-component-example/deps/vue/src/observer.js");
-require.alias("yyx990803-vue/src/directive.js", "vue-component-example/deps/vue/src/directive.js");
-require.alias("yyx990803-vue/src/exp-parser.js", "vue-component-example/deps/vue/src/exp-parser.js");
-require.alias("yyx990803-vue/src/text-parser.js", "vue-component-example/deps/vue/src/text-parser.js");
-require.alias("yyx990803-vue/src/deps-parser.js", "vue-component-example/deps/vue/src/deps-parser.js");
-require.alias("yyx990803-vue/src/filters.js", "vue-component-example/deps/vue/src/filters.js");
-require.alias("yyx990803-vue/src/transition.js", "vue-component-example/deps/vue/src/transition.js");
-require.alias("yyx990803-vue/src/batcher.js", "vue-component-example/deps/vue/src/batcher.js");
-require.alias("yyx990803-vue/src/directives/index.js", "vue-component-example/deps/vue/src/directives/index.js");
-require.alias("yyx990803-vue/src/directives/if.js", "vue-component-example/deps/vue/src/directives/if.js");
-require.alias("yyx990803-vue/src/directives/repeat.js", "vue-component-example/deps/vue/src/directives/repeat.js");
-require.alias("yyx990803-vue/src/directives/on.js", "vue-component-example/deps/vue/src/directives/on.js");
-require.alias("yyx990803-vue/src/directives/model.js", "vue-component-example/deps/vue/src/directives/model.js");
-require.alias("yyx990803-vue/src/directives/with.js", "vue-component-example/deps/vue/src/directives/with.js");
-require.alias("yyx990803-vue/src/directives/html.js", "vue-component-example/deps/vue/src/directives/html.js");
-require.alias("yyx990803-vue/src/directives/style.js", "vue-component-example/deps/vue/src/directives/style.js");
-require.alias("yyx990803-vue/src/directives/partial.js", "vue-component-example/deps/vue/src/directives/partial.js");
-require.alias("yyx990803-vue/src/directives/view.js", "vue-component-example/deps/vue/src/directives/view.js");
-require.alias("yyx990803-vue/src/main.js", "vue-component-example/deps/vue/index.js");
+require.alias("yyx990803-vue/src/main.js", "bookstore-page-challange-app/deps/vue/src/main.js");
+require.alias("yyx990803-vue/src/emitter.js", "bookstore-page-challange-app/deps/vue/src/emitter.js");
+require.alias("yyx990803-vue/src/config.js", "bookstore-page-challange-app/deps/vue/src/config.js");
+require.alias("yyx990803-vue/src/utils.js", "bookstore-page-challange-app/deps/vue/src/utils.js");
+require.alias("yyx990803-vue/src/fragment.js", "bookstore-page-challange-app/deps/vue/src/fragment.js");
+require.alias("yyx990803-vue/src/compiler.js", "bookstore-page-challange-app/deps/vue/src/compiler.js");
+require.alias("yyx990803-vue/src/viewmodel.js", "bookstore-page-challange-app/deps/vue/src/viewmodel.js");
+require.alias("yyx990803-vue/src/binding.js", "bookstore-page-challange-app/deps/vue/src/binding.js");
+require.alias("yyx990803-vue/src/observer.js", "bookstore-page-challange-app/deps/vue/src/observer.js");
+require.alias("yyx990803-vue/src/directive.js", "bookstore-page-challange-app/deps/vue/src/directive.js");
+require.alias("yyx990803-vue/src/exp-parser.js", "bookstore-page-challange-app/deps/vue/src/exp-parser.js");
+require.alias("yyx990803-vue/src/text-parser.js", "bookstore-page-challange-app/deps/vue/src/text-parser.js");
+require.alias("yyx990803-vue/src/deps-parser.js", "bookstore-page-challange-app/deps/vue/src/deps-parser.js");
+require.alias("yyx990803-vue/src/filters.js", "bookstore-page-challange-app/deps/vue/src/filters.js");
+require.alias("yyx990803-vue/src/transition.js", "bookstore-page-challange-app/deps/vue/src/transition.js");
+require.alias("yyx990803-vue/src/batcher.js", "bookstore-page-challange-app/deps/vue/src/batcher.js");
+require.alias("yyx990803-vue/src/directives/index.js", "bookstore-page-challange-app/deps/vue/src/directives/index.js");
+require.alias("yyx990803-vue/src/directives/if.js", "bookstore-page-challange-app/deps/vue/src/directives/if.js");
+require.alias("yyx990803-vue/src/directives/repeat.js", "bookstore-page-challange-app/deps/vue/src/directives/repeat.js");
+require.alias("yyx990803-vue/src/directives/on.js", "bookstore-page-challange-app/deps/vue/src/directives/on.js");
+require.alias("yyx990803-vue/src/directives/model.js", "bookstore-page-challange-app/deps/vue/src/directives/model.js");
+require.alias("yyx990803-vue/src/directives/with.js", "bookstore-page-challange-app/deps/vue/src/directives/with.js");
+require.alias("yyx990803-vue/src/directives/html.js", "bookstore-page-challange-app/deps/vue/src/directives/html.js");
+require.alias("yyx990803-vue/src/directives/style.js", "bookstore-page-challange-app/deps/vue/src/directives/style.js");
+require.alias("yyx990803-vue/src/directives/partial.js", "bookstore-page-challange-app/deps/vue/src/directives/partial.js");
+require.alias("yyx990803-vue/src/directives/view.js", "bookstore-page-challange-app/deps/vue/src/directives/view.js");
+require.alias("yyx990803-vue/src/main.js", "bookstore-page-challange-app/deps/vue/index.js");
 require.alias("yyx990803-vue/src/main.js", "vue/index.js");
 require.alias("yyx990803-vue/src/main.js", "yyx990803-vue/index.js");
-require.alias("config/src/config.js", "vue-component-example/deps/config/src/config.js");
-require.alias("config/src/main.js", "vue-component-example/deps/config/src/main.js");
-require.alias("config/src/config.js", "vue-component-example/deps/config/index.js");
+require.alias("config/src/config.js", "bookstore-page-challange-app/deps/config/src/config.js");
+require.alias("config/src/main.js", "bookstore-page-challange-app/deps/config/src/main.js");
+require.alias("config/src/config.js", "bookstore-page-challange-app/deps/config/index.js");
 require.alias("config/src/config.js", "config/index.js");
 require.alias("config/src/config.js", "config/index.js");
-require.alias("data/src/book.js", "vue-component-example/deps/data/src/book.js");
-require.alias("data/src/book.js", "vue-component-example/deps/data/index.js");
+require.alias("data/src/book.js", "bookstore-page-challange-app/deps/data/src/book.js");
+require.alias("data/src/book.js", "bookstore-page-challange-app/deps/data/index.js");
 require.alias("data/src/book.js", "data/index.js");
 require.alias("data/src/book.js", "data/index.js");
-require.alias("navbar/index.js", "vue-component-example/deps/navbar/index.js");
+
+require.alias("navbar/index.js", "bookstore-page-challange-app/deps/navbar/index.js");
 require.alias("navbar/index.js", "navbar/index.js");
 
-require.alias("main/index.js", "vue-component-example/deps/main/index.js");
+require.alias("main/index.js", "bookstore-page-challange-app/deps/main/index.js");
 require.alias("main/index.js", "main/index.js");
 
-require.alias("footer/index.js", "vue-component-example/deps/footer/index.js");
+require.alias("footer/index.js", "bookstore-page-challange-app/deps/footer/index.js");
 require.alias("footer/index.js", "footer/index.js");
 
-require.alias("vue-component-example/src/main.js", "vue-component-example/index.js");
+require.alias("bookstore-page-challange-app/src/main.js", "bookstore-page-challange-app/index.js");
 if (typeof exports == 'object') {
-  module.exports = require('vue-component-example');
+  module.exports = require('bookstore-page-challange-app');
 } else if (typeof define == 'function' && define.amd) {
-  define(function(){ return require('vue-component-example'); });
+  define(function(){ return require('bookstore-page-challange-app'); });
 } else {
-  window['vue-component-example'] = require('vue-component-example');
+  window['bookstore-page-challange-app'] = require('bookstore-page-challange-app');
 }})();

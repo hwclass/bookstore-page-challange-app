@@ -1,0 +1,18 @@
+{
+  "name": "config",
+  "version": "0.0.1",
+  "main": "src/config.js",
+  "author": "@hwclass",
+  "description": "Config object for Vue",
+  "keywords": [
+    "mvvm",
+    "framework",
+    "data binding"
+  ],
+  "license": "MIT",
+  "scripts": [
+    "src/config.js",
+    "src/main.js"
+  ],
+  "repo": "www.github.com/hwclass"
+}

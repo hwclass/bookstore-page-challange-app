@@ -1,5 +1,5 @@
 {
-  "name": "vue-component-example",
+  "name": "bookstore-page-challange-app",
   "main": "src/main.js",
   "scripts": [
     "src/main.js",
@@ -11,8 +11,8 @@
   ],
   "paths": [
     "components",
-    "components/views",
-    "src/components"
+    "src/components",
+    "src/components/views"
   ],
   "local": [
     "views",

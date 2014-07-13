@@ -1,0 +1,17 @@
+{
+  "name": "data",
+  "version": "0.0.1",
+  "main": "src/book.js",
+  "author": "@hwclass",
+  "description": "Book data for the app",
+  "keywords": [
+    "mvvm",
+    "framework",
+    "data binding"
+  ],
+  "license": "MIT",
+  "scripts": [
+    "src/book.js"
+  ],
+  "repo": "www.github.com/hwclass"
+}
