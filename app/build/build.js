@@ -4781,27 +4781,33 @@ module.exports = {
 });
 require.register("main/index.js", function(exports, require, module){
 /*module management initialization for the module main*/
+
+/*Vue framework imported*/
+var Vue = require('vue');
+
 module.exports = {
-  className: 'container',
+  className: 'content',
   template: require('./template.html')
 };
 });
 require.register("main/init.js", function(exports, require, module){
-/*import modules*/
-var Vue = require('vue');
+/*Vue framework imported*/
+var Vue = require('vue')
+
+/*config component imported*/
+var config = require('config');
+//var configMain = require('./config/main')
+
+Vue.config(config);
 
 new Vue({
-	el: '#middle',
-	components: {},
-	methods : {
-		log : function (msg) {
-			consoole.log(msg)
-		}
-	},
-	computed : {},
-	data: {
-		testo : 'TESTTTTTT'
-	}
+  el: '#middle',
+  methods : {},
+  computed : {},
+  data: {
+      content : 'This is a test content for the main view.',
+      book : require('data')
+  }
 });
 });
 require.register("footer/index.js", function(exports, require, module){
@@ -4837,7 +4843,7 @@ var config = require('config');
 
 Vue.config(config);
 
-new Vue({
+module.exports = new Vue({
 
     el: 'html'/*,
 
@@ -4919,7 +4925,7 @@ require.register("navbar/template.html", function(exports, require, module){
 module.exports = '<header>\n  <section class="content">\n    <div class="book-information">\n      <h1 class="title ac">{{book.title}}</h1>\n      <h2 class="writer ac">By {{book.author}}</h2>\n      <h3 class="publishing-date ac">Published {{formattedPublicationDate}} , <span app-text="book.pages"></span> pages</h3>\n      <p class="recommadations ac">\n        <a href="#" class="btn font-signpainter">ADD TO MY QUEUE</a>\n        <a href="#" class="btn font-brandon">I\'VE READ IT</a>\n        <a href="#" class="btn font-arial">NO THANKS</a>\n        <a href="#" class="btn">love</a>\n      </p>\n    </div>\n  </section>\n</header>\n<nav>\n  <section class="content ac">\n    <ul id="navigation-items">\n      <li class="item first">\n        <div class="ac">About this</div>\n        <div class="ac">BOOK</div>\n      </li>\n      <li class="item second">\n        <div class="ac">Favourite</div>\n        <div class="ac">QUOTES</div>\n      </li>\n    </ul>\n  </section>\n</nav>';
 });
 require.register("main/template.html", function(exports, require, module){
-module.exports = '<section id="middle">\n	<div class="content">\n		<section class="book-shelf fl" style="width: 283px;">\n			<img src="public/img/cover.jpg" width="164" />\n		</section>\n		<section class="book-ingredients fl" style="width: 662px;">\n			<div class="title">\n				<div class="">About this</div>\n				<div class="">BOOK</div>\n			</div>\n			<!--\n			<div class="fl">text</div>\n			<div class="book-cart fr" style="width: 300px; height: 215px; padding: 40px; background: #DDD;">book-cart</div>\n			-->\n			<div id="primary" class="text" style="float: left; width: 100%;">\n			   <div id="secondary" class="book-cart fr" style="width: 300px; height: 215px; background: #DDD;">\n			      <p>Put your content here that goes on the right</p>\n			   </div>\n			   <p>Put your content here that goes on the left and should wrap under the right-hand column</p>\n			</div>\n\n		</section>\n	</div>\n	<div class="quotes" style="width: 100%; color: #FFF;">\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="">Favourite</div>\n			<div class="">QUOTES</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 47px;">ADD A QUOTE</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div style="margin-top: 47px;">\n				<div class="" style="width: 962px; margin: 0 auto;word-break: break-all;position: relative;">\n					<div class="quote-comma-left" style="position: absolute; top: 0; left: 0;">\'\'</div>\n					<div class="quote-text" style="margin: 0 162px 0 154px;">{{testo}}</div>\n					<div class="quote-comma-right" style="position: absolute;  top: 0; right: 0;">\'\'</div>\n				</div>\n			</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 112px;">VIEW ALL QUOTES</div>\n		</div>\n	</div>\n</section>';
+module.exports = '<section id="middle">\n	<div class="content">\n		<section class="book-shelf fl" style="width: 283px;">\n			<img src="public/img/cover.jpg" width="164" />\n		</section>\n		<section class="book-ingredients fl" style="width: 662px;">\n			<div class="title">\n				<div class="">About this</div>\n				<div class="">BOOK</div>\n			</div>\n			<!--\n			<div class="fl">text</div>\n			<div class="book-cart fr" style="width: 300px; height: 215px; padding: 40px; background: #DDD;">book-cart</div>\n			-->\n			<div id="primary" class="text" style="float: left; width: 100%;">\n			   <div id="secondary" class="book-cart fr" style="width: 300px; height: 215px; background: #DDD;">\n			      <p>Put your content here that goes on the right</p>\n			   </div>\n			   <p>Put your content here that goes on the left and should wrap under the right-hand column</p>\n			</div>\n\n		</section>\n	</div>\n	<div class="quotes" style="width: 100%; color: #FFF;">\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="">Favourite</div>\n			<div class="">QUOTES</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 47px;">ADD A QUOTE</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div style="margin-top: 47px;">\n				<div class="" style="width: 962px; margin: 0 auto;word-break: break-all;position: relative;">\n					<div class="quote-comma-left" style="position: absolute; top: 0; left: 0;">\'\'</div>\n					<div class="quote-text" style="margin: 0 162px 0 154px;"></div>\n					<div class="quote-comma-right" style="position: absolute;  top: 0; right: 0;">\'\'</div>\n				</div>\n			</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 112px;">VIEW ALL QUOTES {{content}}</div>\n		</div>\n	</div>\n</section>';
 });
 require.register("footer/template.html", function(exports, require, module){
 module.exports = '<footer>\n	<section class="above" style="color: #FFF; font-family: Arial; font-size: 12px;">\n		<div style="width: 1006px; margin: 0 auto;">\n			<div class="left-column fl" style="width: 450px; padding-top: 46px;">\n				<section class="recommedation-list fl">\n					<span>RECOMMEDATIONS {{testo}}</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">Start with a book</li>\n						<li style="margin-top: 13px;">Start with a author</li>\n						<li style="margin-top: 13px;">Start with an experience</li>\n					</ul>\n				</section>\n				<section class="recommedation-list fl" style="width: 253px; margin-left: 30px;">\n					<span>THE FINGERPRINT</span>\n					<div style="margin-top: 13px;">\n						Looking for a new reading adventure? Delivers better book discovery. Our recommedations are based on a deep understanding of book anatomy, reader experiences and diverse publishing insights. Learn more -->\n					</ul>\n				</section>\n			</div>\n			<div class="fl" style="width: 1px; height: 100%; background: #DDD;">&nbsp;</div>\n			<div class="right-column fl" style="width: 555px; padding-top: 46px;">\n				<section class="about-us-list fl" style="margin-left: 30px;">\n					<span>ABOUT US</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">About</li>\n						<li style="margin-top: 13px;">Blog</li>\n					</ul>\n				</section>\n				<section class="contact-us-list fl" style="margin-left: 30px;">\n					<span>CONTACT US</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">Advertising</li>\n						<li style="margin-top: 13px;">Careers</li>\n						<li style="margin-top: 13px;">Contact Us</li>\n					</ul>\n				</section>\n				<section class="follow-us-list fl" style="margin-left: 30px;">\n					<span>FOLLOW US</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">Facebook</li>\n						<li style="margin-top: 13px;">Twitter</li>\n						<li style="margin-top: 13px;">Pinterest</li>\n						<li style="margin-top: 13px;">Tumblr</li>\n					</ul>\n				</section>\n				<section class="offers-list fl" style="margin-left: 30px;">\n					<span>OFFERS</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">Deals</li>\n						<li style="margin-top: 13px;">On Sale</li>\n					</ul>\n				</section>\n				<section class="offers-list fl" style="margin-left: 30px;">\n					<span>SUPPORT</span>\n					<ul style="margin-top: 13px;">\n						<li style="margin-top: 13px;">FAQ</li>\n						<li style="margin-top: 13px;">Community Guidelines</li>\n						<li style="margin-top: 13px;">Support</li>\n					</ul>\n				</section>\n			</div>\n		</div>\n	</section>\n	<section class="below" style="color: #FFF;">\n		<div style="width: 1006px; margin: 0 auto;">\n			<div class="left-column fl" style="width: 450px; margin-top: 17px;">\n				<section class="year fl">\n					2014\n				</section>\n			</div>\n			<div class="right-column fl" style="width: 555px; margin-top: 18px;">\n				<section class="info fl">\n					<ul style="list-style-type: none;">\n						<li style="display: inline; margin-left: 30px;">Site Map</li>\n						<li style="display: inline; margin-left: 30px;">Privacy Policy</li>\n						<li style="display: inline; margin-left: 30px;">Terms of Service</li>\n					</ul>\n				</section>\n			</div>\n		</div>\n	</section>\n</footer>';
@@ -4997,6 +5003,14 @@ require.alias("yyx990803-vue/src/directives/partial.js", "main/deps/vue/src/dire
 require.alias("yyx990803-vue/src/directives/view.js", "main/deps/vue/src/directives/view.js");
 require.alias("yyx990803-vue/src/main.js", "main/deps/vue/index.js");
 require.alias("yyx990803-vue/src/main.js", "yyx990803-vue/index.js");
+require.alias("config/src/config.js", "main/deps/config/src/config.js");
+require.alias("config/src/main.js", "main/deps/config/src/main.js");
+require.alias("config/src/config.js", "main/deps/config/index.js");
+require.alias("config/src/config.js", "config/index.js");
+require.alias("data/src/book.js", "main/deps/data/src/book.js");
+require.alias("data/src/book.js", "main/deps/data/index.js");
+require.alias("data/src/book.js", "data/index.js");
+
 require.alias("footer/index.js", "bookstore-page-challange-app/deps/footer/index.js");
 require.alias("footer/init.js", "bookstore-page-challange-app/deps/footer/init.js");
 require.alias("footer/index.js", "footer/index.js");

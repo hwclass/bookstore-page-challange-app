@@ -7,7 +7,7 @@ var config = require('config');
 
 Vue.config(config);
 
-new Vue({
+module.exports = new Vue({
 
     el: 'html'/*,
 
