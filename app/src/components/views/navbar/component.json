@@ -2,5 +2,16 @@
     "name": "navbar",
     "scripts": ["index.js"],
     "styles": ["style.css"],
-    "templates": ["template.html"]
+    "templates": ["template.html"],
+    "dependencies": {
+      "yyx990803/vue": "*",
+      "config": "*",
+      "data": "*",
+      "views" : "*"
+    },
+    "paths": [
+      "components",
+      "src/components",
+      "src/components/views"
+    ]
 }

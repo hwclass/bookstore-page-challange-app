@@ -4774,10 +4774,42 @@ module.exports = {
 });
 
 require.register("navbar/index.js", function(exports, require, module){
+/*Vue framework imported*/
+var Vue = require('vue');
+
 module.exports = {
   className: 'navbar navbar-inverse navbar-fixed-top',
   template: require('./template.html')
 }
+
+setTimeout(function() {
+	
+	module.exports = {
+
+		navbar : new Vue({
+	    el: 'header',
+	    methods : {},
+	    computed : {},
+	    data: {
+	        test: 'takinardi',
+	        menuItems : [
+	        	{text : 'Home', link : '#home', className : 'active'},
+	        	{text : 'About', link : '#about', className : ''},
+	        	{text : 'Contact', link : '#contact', className : ''}
+	        ],
+	        containerContent : {
+	        	h1 : 'Bootstrap starter template',
+	        	p : 'Use this document as a way to quickly start any new project. All you get is this text and a mostly barebones HTML document.'
+	        },
+	        currentView : 'main',
+	        book : require('data')
+	    }
+		})
+
+	}
+
+}, 2000);
+
 });
 require.register("main/index.js", function(exports, require, module){
 /*module management initialization for the module main*/
@@ -4922,7 +4954,7 @@ module.exports = function (value) {
 
 
 require.register("navbar/template.html", function(exports, require, module){
-module.exports = '<header>\n  <section class="content">\n    <div class="book-information">\n      <h1 class="title ac">{{book.title}}</h1>\n      <h2 class="writer ac">By {{book.author}}</h2>\n      <h3 class="publishing-date ac">Published {{formattedPublicationDate}} , <span app-text="book.pages"></span> pages</h3>\n      <p class="recommadations ac">\n        <a href="#" class="btn font-signpainter">ADD TO MY QUEUE</a>\n        <a href="#" class="btn font-brandon">I\'VE READ IT</a>\n        <a href="#" class="btn font-arial">NO THANKS</a>\n        <a href="#" class="btn">love</a>\n      </p>\n    </div>\n  </section>\n</header>\n<nav>\n  <section class="content ac">\n    <ul id="navigation-items">\n      <li class="item first">\n        <div class="ac">About this</div>\n        <div class="ac">BOOK</div>\n      </li>\n      <li class="item second">\n        <div class="ac">Favourite</div>\n        <div class="ac">QUOTES</div>\n      </li>\n    </ul>\n  </section>\n</nav>';
+module.exports = '<header>\n  <section class="content">\n    <div class="book-information">\n      <h1 class="title ac">{{book.title}} + {{navbar.test}}</h1>\n      <h2 class="writer ac">By {{book.author}}</h2>\n      <h3 class="publishing-date ac">Published {{formattedPublicationDate}} , <span app-text="book.pages"></span> pages</h3>\n      <p class="recommadations ac">\n        <a href="#" class="btn font-signpainter">ADD TO MY QUEUE</a>\n        <a href="#" class="btn font-brandon">I\'VE READ IT</a>\n        <a href="#" class="btn font-arial">NO THANKS</a>\n        <a href="#" class="btn">love</a>\n      </p>\n    </div>\n  </section>\n</header>\n<nav>\n  <section class="content ac">\n    <ul id="navigation-items">\n      <li class="item first">\n        <div class="ac">About this</div>\n        <div class="ac">BOOK</div>\n      </li>\n      <li class="item second">\n        <div class="ac">Favourite</div>\n        <div class="ac">QUOTES</div>\n      </li>\n    </ul>\n  </section>\n</nav>';
 });
 require.register("main/template.html", function(exports, require, module){
 module.exports = '<section id="middle">\n	<div class="content">\n		<section class="book-shelf fl" style="width: 283px;">\n			<img src="public/img/cover.jpg" width="164" />\n		</section>\n		<section class="book-ingredients fl" style="width: 662px;">\n			<div class="title">\n				<div class="">About this</div>\n				<div class="">BOOK</div>\n			</div>\n			<!--\n			<div class="fl">text</div>\n			<div class="book-cart fr" style="width: 300px; height: 215px; padding: 40px; background: #DDD;">book-cart</div>\n			-->\n			<div id="primary" class="text" style="float: left; width: 100%;">\n			   <div id="secondary" class="book-cart fr" style="width: 300px; height: 215px; background: #DDD;">\n			      <p>Put your content here that goes on the right</p>\n			   </div>\n			   <p>Put your content here that goes on the left and should wrap under the right-hand column</p>\n			</div>\n\n		</section>\n	</div>\n	<div class="quotes" style="width: 100%; color: #FFF;">\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="">Favourite</div>\n			<div class="">QUOTES</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 47px;">ADD A QUOTE</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div style="margin-top: 47px;">\n				<div class="" style="width: 962px; margin: 0 auto;word-break: break-all;position: relative;">\n					<div class="quote-comma-left" style="position: absolute; top: 0; left: 0;">\'\'</div>\n					<div class="quote-text" style="margin: 0 162px 0 154px;"></div>\n					<div class="quote-comma-right" style="position: absolute;  top: 0; right: 0;">\'\'</div>\n				</div>\n			</div>\n		</div>\n		<div class="title ac" style="margin: 0 auto; width: 962px;">\n			<div class="" style="margin-top: 112px;">VIEW ALL QUOTES {{content}}</div>\n		</div>\n	</div>\n</section>';
@@ -4971,6 +5003,41 @@ require.alias("data/src/book.js", "data/index.js");
 
 require.alias("navbar/index.js", "bookstore-page-challange-app/deps/navbar/index.js");
 require.alias("navbar/index.js", "navbar/index.js");
+require.alias("yyx990803-vue/src/main.js", "navbar/deps/vue/src/main.js");
+require.alias("yyx990803-vue/src/emitter.js", "navbar/deps/vue/src/emitter.js");
+require.alias("yyx990803-vue/src/config.js", "navbar/deps/vue/src/config.js");
+require.alias("yyx990803-vue/src/utils.js", "navbar/deps/vue/src/utils.js");
+require.alias("yyx990803-vue/src/fragment.js", "navbar/deps/vue/src/fragment.js");
+require.alias("yyx990803-vue/src/compiler.js", "navbar/deps/vue/src/compiler.js");
+require.alias("yyx990803-vue/src/viewmodel.js", "navbar/deps/vue/src/viewmodel.js");
+require.alias("yyx990803-vue/src/binding.js", "navbar/deps/vue/src/binding.js");
+require.alias("yyx990803-vue/src/observer.js", "navbar/deps/vue/src/observer.js");
+require.alias("yyx990803-vue/src/directive.js", "navbar/deps/vue/src/directive.js");
+require.alias("yyx990803-vue/src/exp-parser.js", "navbar/deps/vue/src/exp-parser.js");
+require.alias("yyx990803-vue/src/text-parser.js", "navbar/deps/vue/src/text-parser.js");
+require.alias("yyx990803-vue/src/deps-parser.js", "navbar/deps/vue/src/deps-parser.js");
+require.alias("yyx990803-vue/src/filters.js", "navbar/deps/vue/src/filters.js");
+require.alias("yyx990803-vue/src/transition.js", "navbar/deps/vue/src/transition.js");
+require.alias("yyx990803-vue/src/batcher.js", "navbar/deps/vue/src/batcher.js");
+require.alias("yyx990803-vue/src/directives/index.js", "navbar/deps/vue/src/directives/index.js");
+require.alias("yyx990803-vue/src/directives/if.js", "navbar/deps/vue/src/directives/if.js");
+require.alias("yyx990803-vue/src/directives/repeat.js", "navbar/deps/vue/src/directives/repeat.js");
+require.alias("yyx990803-vue/src/directives/on.js", "navbar/deps/vue/src/directives/on.js");
+require.alias("yyx990803-vue/src/directives/model.js", "navbar/deps/vue/src/directives/model.js");
+require.alias("yyx990803-vue/src/directives/with.js", "navbar/deps/vue/src/directives/with.js");
+require.alias("yyx990803-vue/src/directives/html.js", "navbar/deps/vue/src/directives/html.js");
+require.alias("yyx990803-vue/src/directives/style.js", "navbar/deps/vue/src/directives/style.js");
+require.alias("yyx990803-vue/src/directives/partial.js", "navbar/deps/vue/src/directives/partial.js");
+require.alias("yyx990803-vue/src/directives/view.js", "navbar/deps/vue/src/directives/view.js");
+require.alias("yyx990803-vue/src/main.js", "navbar/deps/vue/index.js");
+require.alias("yyx990803-vue/src/main.js", "yyx990803-vue/index.js");
+require.alias("config/src/config.js", "navbar/deps/config/src/config.js");
+require.alias("config/src/main.js", "navbar/deps/config/src/main.js");
+require.alias("config/src/config.js", "navbar/deps/config/index.js");
+require.alias("config/src/config.js", "config/index.js");
+require.alias("data/src/book.js", "navbar/deps/data/src/book.js");
+require.alias("data/src/book.js", "navbar/deps/data/index.js");
+require.alias("data/src/book.js", "data/index.js");
 
 require.alias("main/index.js", "bookstore-page-challange-app/deps/main/index.js");
 require.alias("main/init.js", "bookstore-page-challange-app/deps/main/init.js");
